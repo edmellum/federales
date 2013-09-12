@@ -1,5 +1,5 @@
 (function() {
-  var linkTarget = function(el) {
+  linkTarget = function(el) {
     var title = el.attr('title');
     var target = el.attr('href');
 
@@ -30,4 +30,11 @@
       _gaq.push(['_trackEvent', prefix + ' - ' + category, label]);
     });
   };
+
+  // Expose track globally or using Node.js module system if possible.
+  if(module) {
+    module.exports = track;
+  } else {
+    window.track = track;
+  }
 })();
