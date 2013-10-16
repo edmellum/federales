@@ -26,8 +26,8 @@
 
     if(el.is('form')) event = 'submit';
 
-    el.on(event, function() {
-      e.preventDefault();
+    el.on(event, function(evt) {
+      evt.preventDefault();
       _gaq.push(['_trackEvent', prefix + ' - ' + category, label]);
       window.setTimeout(function () {
           window.location.href = el.attr('href');
