@@ -27,7 +27,11 @@
     if(el.is('form')) event = 'submit';
 
     el.on(event, function() {
+      e.preventDefault();
       _gaq.push(['_trackEvent', prefix + ' - ' + category, label]);
+      window.setTimeout(function () {
+          window.location.href = el.attr('href');
+      }, 100);
     });
   };
 
