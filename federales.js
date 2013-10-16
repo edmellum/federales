@@ -17,7 +17,7 @@
     var event = 'click';
 
     if(!el.length && typeof console !== 'undefined') {
-      return console.error('Needs an element to track');
+      return console.warn('Needs an element to track');
     }
 
     if(!label) label = linkTarget(el);
