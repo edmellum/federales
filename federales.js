@@ -16,7 +16,9 @@
     var el = $(selector);
     var event = 'click';
 
-    if(!el.length && console) return console.error('Needs an element to track');
+    if(!el.length && typeof console !== 'undefined') {
+      return console.warn('Needs an element to track');
+    }
 
     if(!label) label = linkTarget(el);
 
@@ -32,7 +34,7 @@
   };
 
   // Expose track globally or using Node.js module system if possible.
-  if(module) {
+  if(typeof module !== 'undefined') {
     module.exports = track;
   } else {
     window.track = track;
